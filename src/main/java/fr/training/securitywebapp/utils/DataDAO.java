@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fr.training.securitywebapp.bean.UserAccount;
+import fr.training.securitywebapp.config.SecurityConfig;
 
 public class DataDAO {
 	
@@ -15,9 +16,9 @@ public class DataDAO {
 	
 	private static void initUsers() {
 		
-		UserAccount emp = new UserAccount("employee1", "123", UserAccount.GENDER_MALE);
+		UserAccount emp = new UserAccount("employee1", "123", UserAccount.GENDER_MALE, SecurityConfig.ROLE_EMPLOYEE);
 		
-		UserAccount mng = new UserAccount("manager1", "123", UserAccount.GENDER_MALE);
+		UserAccount mng = new UserAccount("manager1", "123", UserAccount.GENDER_MALE, SecurityConfig.ROLE_EMPLOYEE, SecurityConfig.ROLE_MANAGER);
 		
 		mapUsers.put(emp.getUserName(), emp);
 		mapUsers.put(mng.getUserName(), mng);
